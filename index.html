@@ -129,6 +129,10 @@
   .header-actions{display:flex;align-items:center;gap:18px;}
   .menu-btn{display:none;font-size:26px;color:var(--navy);}
 
+  .logo-img{
+    width: 120px; height: auto; object-fit: contain;
+  }
+
   /* ---------- Hero ---------- */
   .hero{
     position:relative;padding:172px 0 100px;
@@ -382,18 +386,7 @@
 <header id="siteHeader">
   <div class="wrap">
     <a href="#top" class="logo">
-      <svg class="logo-mark" viewBox="0 0 100 100" fill="none">
-        <circle cx="50" cy="46" r="30" stroke="#F2A125" stroke-width="4" stroke-dasharray="4 170" stroke-linecap="round" transform="rotate(-40 50 46)"/>
-        <path d="M50 46 L50 14 M50 46 L74 22 M50 46 L82 46 M50 46 L74 70 M50 46 L28 22 M50 46 L18 46 M50 46 L28 70" stroke="#F2A125" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="50" cy="46" r="16" fill="url(#gOrange)"/>
-        <path d="M14 78 L50 50 L86 78 Z" fill="#0B2A4A"/>
-        <path d="M22 78 L50 88 L78 78 L78 92 L22 92 Z" fill="#153E68"/>
-        <path d="M18 92 C 30 76, 48 108, 66 78 C 74 66, 86 84, 92 66" stroke="url(#gGreen)" stroke-width="6" fill="none" stroke-linecap="round"/>
-      </svg>
-      <div>
-        <div class="logo-text">RIGHT <span>ENERGY</span></div>
-        <div class="logo-sub">Solar &amp; Lithium Solutions</div>
-      </div>
+      <img src="logo.png" alt="" class="logo-img">
     </a>
     <nav>
       <ul>
