@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Right Energy Solar — Powering a Greener India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --bg:#F7F9F5;
+    --bg-alt:#EEF4EC;
+    --bg-blue:#EFF5F9;
+    --navy:#0B2A4A;
+    --navy-2:#123B63;
+    --orange:#F2A125;
+    --orange-2:#E5811A;
+    --green:#2E9E4C;
+    --green-2:#1E7F3C;
+    --text:#1B2A38;
+    --muted:#5C6B78;
+    --white:#FFFFFF;
+    --line:rgba(11,42,74,0.10);
+    --shadow: 0 24px 48px -28px rgba(11,42,74,0.28);
+    --shadow-sm: 0 10px 24px -14px rgba(11,42,74,0.22);
+    --radius:16px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+
+  h1,h2,h3,h4{
+    font-family:'Space Grotesk',sans-serif;
+    color:var(--navy);
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--green-2);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:2px;
+    background:linear-gradient(90deg,var(--orange),var(--green));
+    display:inline-block;
+    border-radius:2px;
+  }
+
+  .wrap{
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:15px;
+    padding:14px 26px;
+    border-radius:999px;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--orange) 0%, var(--orange-2) 100%);
+    color:#231000;
+    box-shadow:0 14px 30px -12px rgba(229,129,26,0.55);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 34px -10px rgba(229,129,26,0.65);}
+  .btn-outline{
+    border:1.5px solid var(--navy);
+    color:var(--navy);
+    background:transparent;
+  }
+  .btn-outline:hover{background:var(--navy);color:#fff;transform:translateY(-2px);}
+  .btn-light{
+    border:1.5px solid rgba(255,255,255,0.35);
+    color:#fff;
+  }
+  .btn-light:hover{background:rgba(255,255,255,0.12);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:1000;
+    padding:22px 0;
+    transition:all .35s ease;
+  }
+  header.scrolled{
+    padding:12px 0;
+    background:rgba(247,249,245,0.85);
+    backdrop-filter:blur(14px);
+    box-shadow:0 8px 30px -18px rgba(11,42,74,0.25);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .logo{
+    display:flex;align-items:center;gap:10px;
+  }
+  .logo-mark{width:38px;height:38px;flex-shrink:0;}
+  .logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;color:var(--navy);letter-spacing:-0.01em;line-height:1.1;}
+  .logo-text span{color:var(--green-2);}
+  .logo-sub{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase;}
+
+  nav ul{display:flex;gap:36px;align-items:center;}
+  nav a{
+    font-size:14.5px;font-weight:600;color:var(--navy-2);
+    position:relative;padding:4px 0;
+  }
+  nav a::after{
+    content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;
+    background:linear-gradient(90deg,var(--orange),var(--green));
+    transition:width .25s ease;
+  }
+  nav a:hover::after{width:100%;}
+  .header-actions{display:flex;align-items:center;gap:18px;}
+  .menu-btn{display:none;font-size:26px;color:var(--navy);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:168px 0 90px;
+    background:
+      radial-gradient(ellipse 900px 500px at 82% -8%, rgba(242,161,37,0.16), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 30%, rgba(46,158,76,0.10), transparent 60%),
+      var(--bg);
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.02fr 0.98fr;
+    gap:40px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:58px;
+    margin-bottom:22px;
+  }
+  .hero h1 .accent{
+    background:linear-gradient(100deg,var(--orange-2),var(--orange) 55%, var(--green));
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .hero p.lead{
+    font-size:18px;
+    color:var(--muted);
+    max-width:480px;
+    margin-bottom:34px;
+  }
+  .hero .eyebrow{margin-bottom:22px;}
+  .hero-ctas{display:flex;gap:16px;margin-bottom:44px;flex-wrap:wrap;}
+
+  .hero-stats{
+    display:flex;gap:34px;flex-wrap:wrap;
+  }
+  .hero-stats .stat b{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:22px;color:var(--navy);display:block;
+  }
+  .hero-stats .stat span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;color:var(--muted);
+    letter-spacing:0.04em;
+  }
+
+  .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;}
+  .hero-visual svg{width:100%;height:auto;max-width:560px;}
+
+  /* ray pulse */
+  .ray{transform-origin:280px 260px;animation:pulseRay 4.5s ease-in-out infinite;}
+  @keyframes pulseRay{
+    0%,100%{opacity:0.9;}
+    50%{opacity:0.55;}
+  }
+  .orbit{animation:spin 60s linear infinite;transform-origin:280px 240px;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .particle{animation:rise 5s ease-in infinite;}
+  @keyframes rise{
+    0%{transform:translateY(0);opacity:0;}
+    15%{opacity:1;}
+    85%{opacity:0.7;}
+    100%{transform:translateY(-160px);opacity:0;}
+  }
+  .panel-sheen{animation:sheen 3.5s ease-in-out infinite;}
+  @keyframes sheen{
+    0%,100%{opacity:0.15;}
+    50%{opacity:0.55;}
+  }
+
+  /* ---------- Trust bar ---------- */
+  .trustbar{
+    background:var(--navy);
+    padding:26px 0;
+  }
+  .trustbar .wrap{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;
+  }
+  .trust-item{
+    display:flex;align-items:center;gap:12px;color:#fff;
+  }
+  .trust-item .ic{
+    width:38px;height:38px;border-radius:11px;
+    background:rgba(255,255,255,0.08);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .trust-item .ic svg{width:19px;height:19px;stroke:var(--orange);}
+  .trust-item b{display:block;font-size:14.5px;font-weight:600;}
+  .trust-item span{display:block;font-size:12px;color:rgba(255,255,255,0.55);font-family:'IBM Plex Mono',monospace;letter-spacing:.03em;}
+
+  /* ---------- Section shared ---------- */
+  section{padding:110px 0;position:relative;}
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head h2{
+    font-size:38px;
+    margin-top:16px;
+  }
+  .section-head p{
+    color:var(--muted);
+    font-size:16.5px;
+    margin-top:14px;
+  }
+  .section-alt{background:var(--bg-alt);}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- Products grid ---------- */
+  .prod-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+  }
+  .prod-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 22px;
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .prod-card:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow-sm);
+    border-color:transparent;
+  }
+  .prod-ic{
+    width:52px;height:52px;
+    border-radius:13px;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:20px;
+  }
+  .prod-ic svg{width:26px;height:26px;stroke-width:1.6;fill:none;}
+  .prod-card h4{font-size:16px;margin-bottom:6px;}
+  .prod-card p{font-size:13.5px;color:var(--muted);}
+
+  .tint-orange{background:rgba(242,161,37,0.12);}
+  .tint-orange svg{stroke:var(--orange-2);}
+  .tint-green{background:rgba(46,158,76,0.12);}
+  .tint-green svg{stroke:var(--green-2);}
+  .tint-navy{background:rgba(11,42,74,0.08);}
+  .tint-navy svg{stroke:var(--navy);}
+
+  /* ---------- Battery tiers ---------- */
+  .tier-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .tier-card{
+    background:var(--navy);
+    border-radius:20px;
+    padding:36px 30px;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .tier-card::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(400px 200px at 100% 0%, rgba(242,161,37,0.22), transparent 60%);
+  }
+  .tier-card.mid{background:linear-gradient(160deg,var(--navy-2),var(--navy));transform:scale(1.03);}
+  .tier-volt{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:34px;font-weight:700;
+    margin-bottom:4px;position:relative;
+  }
+  .tier-volt span{color:var(--orange);}
+  .tier-card .tier-badge{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;
+    color:rgba(255,255,255,0.55);text-transform:uppercase;margin-bottom:18px;display:block;position:relative;
+  }
+  .tier-specs{
+    display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 22px;position:relative;
+  }
+  .tier-specs span{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;
+    border:1px solid rgba(255,255,255,0.22);
+    padding:6px 12px;border-radius:999px;color:rgba(255,255,255,0.85);
+  }
+  .tier-card p.use{
+    font-size:14px;color:rgba(255,255,255,0.65);line-height:1.55;position:relative;
+  }
+
+  /* ---------- Why choose ---------- */
+  .why-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .why-list li{
+    display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--line);
+  }
+  .why-list li:last-child{border-bottom:1px solid var(--line);}
+  .why-list .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;color:var(--green-2);font-weight:600;padding-top:2px;
+  }
+  .why-list h4{font-size:16.5px;margin-bottom:4px;}
+  .why-list p{font-size:14px;color:var(--muted);}
+
+  .metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .metric-card{
+    background:var(--white);border:1px solid var(--line);
+    border-radius:var(--radius);padding:26px;
+    box-shadow:var(--shadow-sm);
+  }
+  .metric-card .ic{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .metric-card .ic svg{width:20px;height:20px;stroke-width:1.7;fill:none;}
+  .metric-card b{
+    display:block;font-family:'Space Grotesk',sans-serif;font-size:20px;color:var(--navy);margin-bottom:4px;
+  }
+  .metric-card span{font-size:13px;color:var(--muted);}
+
+  /* ---------- Flow / signature swoosh section ---------- */
+  .flow-wrap{position:relative;}
+  .flow-svg{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+  .flow-path{
+    stroke-dasharray:2600;
+    stroke-dashoffset:2600;
+    transition:stroke-dashoffset 1.8s ease;
+  }
+  .flow-path.in{stroke-dashoffset:0;}
+
+  /* ---------- Services banner ---------- */
+  .services{
+    background:linear-gradient(120deg,var(--navy) 0%, var(--navy-2) 100%);
+    border-radius:28px;
+    padding:56px 50px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    position:relative;
+    overflow:hidden;
+  }
+  .services::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(500px 260px at 90% 10%, rgba(46,158,76,0.25), transparent 60%);
+  }
+  .service-item{position:relative;color:#fff;}
+  .service-item .ic{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .service-item .ic svg{width:22px;height:22px;stroke:var(--orange);stroke-width:1.6;fill:none;}
+  .service-item h4{color:#fff;font-size:16px;margin-bottom:6px;}
+  .service-item p{font-size:13px;color:rgba(255,255,255,0.6);}
+
+  /* ---------- CTA ---------- */
+  .cta{
+    text-align:center;
+    max-width:680px;margin:0 auto;
+  }
+  .cta h2{font-size:40px;margin-bottom:18px;}
+  .cta p{color:var(--muted);font-size:17px;margin-bottom:36px;}
+  .cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--navy);
+    color:rgba(255,255,255,0.65);
+    padding:70px 0 30px;
+  }
+  .footer-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;
+    padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+  .footer-logo .logo-text{color:#fff;}
+  footer p.desc{font-size:14px;line-height:1.7;max-width:280px;}
+  footer h5{color:#fff;font-family:'Space Grotesk',sans-serif;font-size:14px;margin-bottom:18px;letter-spacing:.02em;}
+  footer ul li{margin-bottom:12px;font-size:14px;}
+  footer ul li a:hover{color:var(--orange);}
+  .foot-bottom{
+    display:flex;justify-content:space-between;align-items:center;padding-top:26px;
+    font-size:12.5px;flex-wrap:wrap;gap:12px;
+  }
+  .foot-bottom span.tag{font-family:'IBM Plex Mono',monospace;color:rgba(255,255,255,0.4);}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:-1;margin-bottom:20px;}
+    .hero h1{font-size:42px;}
+    .prod-grid{grid-template-columns:repeat(2,1fr);}
+    .tier-grid{grid-template-columns:1fr;}
+    .tier-card.mid{transform:none;}
+    .why-grid{grid-template-columns:1fr;}
+    .metric-grid{grid-template-columns:1fr 1fr;}
+    .services{grid-template-columns:1fr 1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:36px 20px;}
+    nav{display:none;}
+    .menu-btn{display:block;}
+  }
+  @media(max-width:600px){
+    .wrap{padding:0 20px;}
+    .hero{padding:150px 0 60px;}
+    .hero h1{font-size:33px;}
+    .section-head h2{font-size:28px;}
+    .prod-grid{grid-template-columns:1fr 1fr;}
+    .services{grid-template-columns:1fr;padding:40px 26px;}
+    .footer-grid{grid-template-columns:1fr;}
+    .cta h2{font-size:28px;}
+    .hero-stats{gap:24px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <svg class="logo-mark" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="46" r="30" stroke="#F2A125" stroke-width="4" stroke-dasharray="4 170" stroke-linecap="round" transform="rotate(-40 50 46)"/>
+        <path d="M50 46 L50 14 M50 46 L74 22 M50 46 L82 46 M50 46 L74 70 M50 46 L28 22 M50 46 L18 46 M50 46 L28 70" stroke="#F2A125" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="50" cy="46" r="16" fill="#F2A125"/>
+        <path d="M14 78 L50 50 L86 78 Z" fill="#0B2A4A"/>
+        <path d="M22 78 L50 88 L78 78 L78 92 L22 92 Z" fill="#153E68"/>
+        <path d="M18 92 C 30 76, 48 108, 66 78 C 74 66, 86 84, 92 66" stroke="#2E9E4C" stroke-width="6" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <div class="logo-text">RIGHT <span>ENERGY</span></div>
+        <div class="logo-sub">Solar &amp; Lithium Solutions</div>
+      </div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#batteries">Batteries</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#services">Dealers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="#contact" class="btn btn-primary">Get a Quote</a>
+      <span class="menu-btn">&#9776;</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<div id="top"></div>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Complete Solar &amp; Lithium Energy Solutions</div>
+      <h1>Power your world,<br>the <span class="accent">Right</span> way.</h1>
+      <p class="lead">From rooftop solar to smart lithium storage — we engineer the complete system that keeps homes, businesses and dealers running on clean power, day and night.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">Get a Quote</a>
+        <a href="#products" class="btn btn-outline">View Product Range</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>6000+</b><span>CHARGE CYCLES</span></div>
+        <div class="stat"><b>3–10 Yrs</b><span>WARRANTY COVER</span></div>
+        <div class="stat"><b>Pan India</b><span>DEALER DELIVERY</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <svg viewBox="0 0 560 480" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="sunGrad" cx="40%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#FFD873"/>
+            <stop offset="55%" stop-color="#F5A623"/>
+            <stop offset="100%" stop-color="#E5811A"/>
+          </radialGradient>
+          <linearGradient id="panelGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2C6FA8"/>
+            <stop offset="100%" stop-color="#0B2A4A"/>
+          </linearGradient>
+          <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#1E7F3C"/>
+            <stop offset="100%" stop-color="#4FC26B"/>
+          </linearGradient>
+        </defs>
+
+        <!-- orbit ring -->
+        <g class="orbit">
+          <circle cx="280" cy="240" r="180" fill="none" stroke="#F2A125" stroke-width="2.5" stroke-dasharray="2 14" opacity="0.55"/>
+        </g>
+
+        <!-- sun rays -->
+        <g class="ray">
+          <g stroke="#F2A125" stroke-width="7" stroke-linecap="round" opacity="0.85">
+            <line x1="280" y1="60" x2="280" y2="100"/>
+            <line x1="400" y1="100" x2="374" y2="128"/>
+            <line x1="450" y1="200" x2="410" y2="204"/>
+            <line x1="160" y1="100" x2="186" y2="128"/>
+            <line x1="110" y1="200" x2="150" y2="204"/>
+            <line x1="330" y1="72" x2="316" y2="108"/>
+            <line x1="230" y1="72" x2="244" y2="108"/>
+          </g>
+        </g>
+
+        <!-- sun -->
+        <circle cx="280" cy="200" r="86" fill="url(#sunGrad)"/>
+
+        <!-- rooftop -->
+        <path d="M120 330 L280 220 L440 330 Z" fill="#0B2A4A"/>
+        <rect x="245" y="270" width="26" height="26" fill="#153E68"/>
+        <rect x="249" y="274" width="8" height="8" fill="#F5A623"/>
+        <rect x="261" y="274" width="8" height="8" fill="#F5A623"/>
+
+        <!-- solar panel array -->
+        <g>
+          <rect x="130" y="330" width="300" height="86" rx="4" fill="url(#panelGrad)" transform="skewX(-6)"/>
+          <g stroke="#9FC8E8" stroke-width="1.4" opacity="0.55" transform="skewX(-6)">
+            <line x1="130" y1="358" x2="430" y2="358"/>
+            <line x1="130" y1="386" x2="430" y2="386"/>
+            <line x1="180" y1="330" x2="180" y2="416"/>
+            <line x1="230" y1="330" x2="230" y2="416"/>
+            <line x1="280" y1="330" x2="280" y2="416"/>
+            <line x1="330" y1="330" x2="330" y2="416"/>
+            <line x1="380" y1="330" x2="380" y2="416"/>
+          </g>
+          <rect class="panel-sheen" x="140" y="330" width="60" height="86" fill="#ffffff" opacity="0.25" transform="skewX(-6)"/>
+        </g>
+
+        <!-- leaf swoosh -->
+        <path d="M60 430 C 140 470, 210 470, 260 420 C 300 380, 360 380, 400 400 C 430 415, 470 400, 500 360"
+              stroke="url(#leafGrad)" stroke-width="10" fill="none" stroke-linecap="round"/>
+
+        <!-- particles -->
+        <circle class="particle" cx="200" cy="330" r="4" fill="#F5A623" style="animation-delay:.2s"/>
+        <circle class="particle" cx="260" cy="340" r="3" fill="#4FC26B" style="animation-delay:1.4s"/>
+        <circle class="particle" cx="330" cy="335" r="4" fill="#F5A623" style="animation-delay:2.4s"/>
+        <circle class="particle" cx="380" cy="345" r="3" fill="#4FC26B" style="animation-delay:3.2s"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST BAR ============ -->
+<div class="trustbar">
+  <div class="wrap">
+    <div class="trust-item">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2 L20 6 V12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 V6 Z"/><path d="M9 12 l2 2 l4-4"/></svg></span>
+      <div><b>Safe &amp; Reliable</b><span>Certified cell quality</span></div>
+    </div>
+    <div class="trust-item">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M17 3v4h-4M7 21v-4h4"/></svg></span>
+      <div><b>Long Life</b><span>High performance cells</span></div>
+    </div>
+    <div class="trust-item">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2 C7 6 5 10 5 13a7 7 0 0 0 14 0c0-3-2-7-7-11z"/></svg></span>
+      <div><b>Clean Energy</b><span>Built for a greener future</span></div>
+    </div>
+    <div class="trust-item">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2 L14.5 8.5 L21 9.3 L16.2 13.8 L17.5 20.3 L12 17 L6.5 20.3 L7.8 13.8 L3 9.3 L9.5 8.5 Z"/></svg></span>
+      <div><b>Best Price</b><span>Guaranteed dealer rates</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PRODUCT RANGE ============ -->
+<section id="products">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Our Complete Product Range</div>
+      <h2>Everything your solar &amp; lithium install needs, in one place.</h2>
+      <p>Batteries, balance-of-system parts and safety essentials — sourced, tested and stocked so your project never waits on a missing component.</p>
+    </div>
+
+    <div class="prod-grid">
+
+      <div class="prod-card reveal">
+        <div class="prod-ic tint-navy"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="16" height="11" rx="1.5"/><rect x="19" y="10.5" width="2.5" height="4"/><path d="M8 7V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2"/><path d="M11 10 v3 M9.3 11.5 h3.4"/></svg></div>
+        <h4>Lithium Batteries</h4>
+        <p>12V · 25.6V · 48V — 100Ah &amp; more</p>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-ic tint-orange"><svg viewBox="0 0 24 24"><path d="M3 7 q4 -4 8 0 t8 0" /><path d="M3 12 q4 -4 8 0 t8 0"/><path d="M3 17 q4 -4 8 0 t8 0"/></svg></div>
+        <h4>DC &amp; AC Cables</h4>
+        <p>High quality, 100% copper</p>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-ic tint-green"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="6" height="5" rx="1"/><rect x="14" y="10" width="6" height="5" rx="1"/><line x1="10" y1="12.5" x2="14" y2="12.5"/></svg></div>
+        <h4>MC4 Connectors</h4>
+        <p>Waterproof, UV resistant, long lasting</p>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-ic tint-navy"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg></div>
+        <h4>DCDB</h4>
+        <p>Reliable protection for solar DC systems</p>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-ic tint-orange"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="16" y2="15"/></svg></div>
+        <h4>ACDB</h4>
+        <p>Safe &amp; durable AC distribution</p>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-ic tint-green"><svg viewBox="0 0 24 24"><path d="M12 2 L4 7 v6 c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V7 Z"/><path d="M9 12 l2 2 4-4.5"/></svg></div>
+        <h4>SPD</h4>
+        <p>Surge protection device</p>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-ic tint-navy"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="18" rx="3"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+        <h4>DC Fuse &amp; Holder</h4>
+        <p>Safe solar circuit protection</p>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-ic tint-orange"><svg viewBox="0 0 24 24"><circle cx="7" cy="12" r="3.2"/><path d="M10.2 12 H20 M17 9 v6"/></svg></div>
+        <h4>Lugs &amp; Glands</h4>
+        <p>High conductivity, long life</p>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-ic tint-green"><svg viewBox="0 0 24 24"><path d="M12 3 a9 9 0 1 0 0.001 0 Z"/><path d="M12 8 v8 M8 12 h8"/></svg></div>
+        <h4>Earthing Kit</h4>
+        <p>Complete safety solution</p>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-ic tint-navy"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="2.4"/><circle cx="16" cy="16" r="2.4"/><path d="M9.8 9.8 L14.2 14.2"/><path d="M5 19 l3-3 M19 5 l-3 3"/></svg></div>
+        <h4>Installation Accessories</h4>
+        <p>All types, ready to fit</p>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-ic tint-orange"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><path d="M9 4 h6 M9 20 h6"/></svg></div>
+        <h4>Earthing Rod</h4>
+        <p>Copper coated, rust proof</p>
+      </div>
+
+      <div class="prod-card reveal">
+        <div class="prod-ic tint-green"><svg viewBox="0 0 24 24"><path d="M8 3 h8 l1 4 H7 Z"/><path d="M6 7 h12 l-1.5 13.5 a1 1 0 0 1-1 0.5 H8.5 a1 1 0 0 1-1-0.5 Z"/></svg></div>
+        <h4>Earthing Chemical</h4>
+        <p>Enhances earthing efficiency</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ BATTERY RANGE ============ -->
+<section id="batteries" class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Lithium Battery Range</div>
+      <h2>One chemistry. Three voltages. Every use case.</h2>
+      <p>LiFePO4 packs built for the way India actually uses power — from rooftop backup to commercial and E-Rickshaw duty cycles.</p>
+    </div>
+
+    <div class="tier-grid">
+      <div class="tier-card reveal">
+        <span class="tier-badge">Residential</span>
+        <div class="tier-volt">12<span>V</span></div>
+        <div class="tier-specs"><span>100Ah</span><span>150Ah</span><span>200Ah</span></div>
+        <p class="use">For inverters, home solar and everyday backup power.</p>
+      </div>
+      <div class="tier-card mid reveal">
+        <span class="tier-badge">Solar &amp; Commercial</span>
+        <div class="tier-volt">25.6<span>V</span> <span style="font-size:16px;color:rgba(255,255,255,.5)">(24V)</span></div>
+        <div class="tier-specs"><span>100Ah</span><span>150Ah</span><span>200Ah</span></div>
+        <p class="use">Sized for solar arrays and commercial installations that run harder, longer.</p>
+      </div>
+      <div class="tier-card reveal">
+        <span class="tier-badge">Industrial</span>
+        <div class="tier-volt">48<span>V</span></div>
+        <div class="tier-specs"><span>100Ah</span><span>150Ah</span><span>200Ah</span></div>
+        <p class="use">For solar, E-Rickshaw, commercial and industrial-scale power.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE ============ -->
+<section id="why" class="flow-wrap">
+  <svg class="flow-svg" viewBox="0 0 1240 700" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="flowGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#F2A125"/>
+        <stop offset="100%" stop-color="#2E9E4C"/>
+      </linearGradient>
+    </defs>
+    <path id="flowPath" class="flow-path" d="M -20 120 C 300 40, 500 260, 640 220 C 820 165, 900 420, 1120 400 C 1220 392, 1240 430, 1260 460"
+          stroke="url(#flowGrad)" stroke-width="2.5" fill="none" opacity="0.4"/>
+  </svg>
+
+  <div class="wrap why-grid">
+    <div class="reveal">
+      <div class="eyebrow">Why Choose Right Energy</div>
+      <h2 style="font-size:34px;margin-top:16px;margin-bottom:26px;">Built to be a dealer's most dependable supplier.</h2>
+      <ul class="why-list">
+        <li><span class="num">01</span><div><h4>Premium Quality Products</h4><p>Every cell and component tested before it leaves the warehouse.</p></div></li>
+        <li><span class="num">02</span><div><h4>Best Prices for Dealers &amp; Distributors</h4><p>Margins that make sense at bulk volume.</p></div></li>
+        <li><span class="num">03</span><div><h4>Timely Delivery</h4><p>Pan India logistics that keep your projects on schedule.</p></div></li>
+        <li><span class="num">04</span><div><h4>Technical Support</h4><p>Real engineers, on call for install and sizing questions.</p></div></li>
+        <li><span class="num">05</span><div><h4>Trusted by Solar Professionals</h4><p>Chosen by installers who can't afford a failed component.</p></div></li>
+      </ul>
+    </div>
+
+    <div class="metric-grid reveal">
+      <div class="metric-card">
+        <div class="ic tint-orange"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M13 2 L4 14h7l-1 8 9-12h-7z"/></svg></div>
+        <b>6000+ Cycles</b>
+        <span>Long life, high performance</span>
+      </div>
+      <div class="metric-card">
+        <div class="ic tint-green"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><rect x="6" y="9" width="12" height="11" rx="1.5"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg></div>
+        <b>Smart BMS</b>
+        <span>Safety first, always monitored</span>
+      </div>
+      <div class="metric-card">
+        <div class="ic tint-navy"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M13 2 L4 14h7l-1 8 9-12h-7z"/><path d="M20 4 l1.5 1.5"/></svg></div>
+        <b>High Efficiency</b>
+        <span>More backup per charge</span>
+      </div>
+      <div class="metric-card">
+        <div class="ic tint-orange"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 2 L20 6 V12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 V6 Z"/></svg></div>
+        <b>3–10 Yr Warranty</b>
+        <span>Confidence built in</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES / DEALER ============ -->
+<section id="services">
+  <div class="wrap">
+    <div class="services reveal">
+      <div class="service-item">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 13 h11 l4 4 h3 v4 H3 Z"/><circle cx="7.5" cy="19.5" r="1.6"/><circle cx="17.5" cy="19.5" r="1.6"/></svg></div>
+        <h4>Pan India Delivery</h4>
+        <p>Reliable logistics to every state, every time.</p>
+      </div>
+      <div class="service-item">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M3 8 l3-4 h12 l3 4"/></svg></div>
+        <h4>Bulk Orders Available</h4>
+        <p>Stock levels built for project-scale demand.</p>
+      </div>
+      <div class="service-item">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 L20 6 V12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 V6 Z"/><path d="M9 12 l2 2 l4-4"/></svg></div>
+        <h4>Best Prices Guaranteed</h4>
+        <p>Transparent, competitive dealer pricing.</p>
+      </div>
+      <div class="service-item">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M4 21 c0-4.5 3.5-7 8-7 s8 2.5 8 7"/></svg></div>
+        <h4>Dealer Support &amp; Training</h4>
+        <p>Onboarding and technical training, included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section id="contact">
+  <div class="wrap cta reveal">
+    <div class="eyebrow" style="justify-content:center;">Right Energy — Right Solution for a Bright Future</div>
+    <h2>Ready to power your next project?</h2>
+    <p>Tell us what you're building — home backup, a solar install, or a dealer partnership — and our team will get back with pricing and stock within one business day.</p>
+    <div class="cta-actions">
+      <a href="mailto:hello@rightenergysolar.in" class="btn btn-primary">Get a Quote</a>
+      <a href="#products" class="btn btn-outline">Browse Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <svg class="logo-mark" viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="46" r="16" fill="#F2A125"/>
+            <path d="M14 78 L50 50 L86 78 Z" fill="#ffffff"/>
+            <path d="M18 92 C 30 76, 48 108, 66 78 C 74 66, 86 84, 92 66" stroke="#4FC26B" stroke-width="6" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="logo-text">RIGHT ENERGY</div>
+        </div>
+        <p class="desc">Complete solar &amp; lithium energy solutions — powering a greener India, one rooftop and one dealer at a time.</p>
+      </div>
+      <div>
+        <h5>Products</h5>
+        <ul>
+          <li><a href="#products">Lithium Batteries</a></li>
+          <li><a href="#products">Cables &amp; Connectors</a></li>
+          <li><a href="#products">DCDB / ACDB</a></li>
+          <li><a href="#products">Earthing Systems</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#services">Become a Dealer</a></li>
+          <li><a href="#batteries">Battery Range</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get in Touch</h5>
+        <ul>
+          <li>hello@rightenergysolar.in</li>
+          <li>+91 98XXX XXXXX</li>
+          <li>Dealer &amp; bulk order enquiries welcome</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Right Energy Solar. All rights reserved.</span>
+      <span class="tag">POWERING A GREENER INDIA</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header scroll state
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, {threshold:0.15});
+  revealEls.forEach(el => io.observe(el));
+
+  // Flow path draw-in
+  const flowPath = document.getElementById('flowPath');
+  const flowIo = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ flowPath.classList.add('in'); } });
+  }, {threshold:0.1});
+  flowIo.observe(document.getElementById('why'));
+</script>
+
+</body>
+</html>
